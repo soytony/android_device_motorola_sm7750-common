@@ -1,0 +1,101 @@
+# Platform-common vendor properties for SM7750 (sun)
+
+# Audio
+ro.vendor.audio_sdk.sku=sun
+ro.vendor.audio_hal.sku=sun
+
+# Bluetooth
+persist.vendor.btstack.enable.splita2dp=true
+persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptive-aptx.tws
+ro.vendor.bluetooth.library_name=libbluetooth_qti.so
+
+# Camera
+ro.vendor.camera.cf.flashlight=1
+
+# Chipset
+ro.board.platform=sun
+ro.vendor.qti.ambs.register.audio_listener=true
+
+# CRIU
+ro.vendor.esi.mode=7
+
+# Display
+ro.vendor.display.hbm_backlight_scale=200
+ro.vendor.display.sensortype=2
+ro.vendor.display.paneltype=0
+ro.surface_flinger.use_content_detection_for_refresh_rate=true
+ro.surface_flander.set_display_power_timer_ms=1000
+ro.surface_flinger.primary_frame_stride=1440
+ro.surface_flinger.primary_display_orientation_mode=0
+
+# DRM
+drm.service.enabled=true
+
+# FRP
+ro.frp.pst=/dev/block/bootdevice/by-name/frp
+
+# Gatekeeper
+ro.vendor.gatekeeper.algorithm=gatekeeper
+
+# Graphics
+ro.hardware.egl=adreno
+ro.hardware.vulkan=adreno
+ro.opengles.version=196610
+ro.vendor.gles.swiftshader=1
+
+# Keymaster
+ro.vendor.keymaster.nonsecure_algorithm=gatekeeper
+
+# Media
+ro.media.xmlvariant.codecs=sun
+
+# NFC
+ro.vendor.nfc.fwdump.dmgz=0
+
+# Radio
+ro.vendor.radio.5g=1
+ro.vendor.radio.apm.sim.not.persist=1
+ro.vendor.radio.enableadvancedpowersaving=1
+ro.vendor.use_data_netmgr_manager=true
+persist.vendor.data.mode=concurrent
+persist.radio.multisim.config=dsds
+persist.vendor.radio.custom_ecc=1
+persist.vendor.radio.sib16_support=1
+persist.vendor.radio.report_codec=1
+
+# RIL
+persist.vendor.radio.add_power_save=1
+persist.vendor.radio.data_ltd_sys_ind=1
+
+# Sensors
+ro.vendor.sensors.glapproach=false
+ro.vendor.sensors.mot_lgy=true
+ro.vendor.sensors.pedometer=false
+ro.vendor.sensors.ring_picker=false
+
+# Sockets
+ro.vendor.extension_library=libqti-vndfwk-detect.so
+
+# Storage
+ro.vendor.crypto.fde_algorithm=otfe
+ro.vendor.crypto.fde_scrypt_params=12:3:1:1
+ro.sys.fw.bgapp_limit=24
+
+# USB
+ro.vendor.usb.controller=a600000.dwc3
+ro.vendor.usb.productfs_config=1
+
+# Virtual A/B
+ro.virtual_ab.enabled=true
+ro.virtual_ab.compression.enabled=true
+ro.virtual_ab.userspace.snapshots.enabled=true
+
+# WiFi
+ro.vendor.wifi.vht__su_beamformer=1
+ro.vendor.wifi.vht_beamformer=1
+ro.vendor.wifi.sap_congestion_scan=1
+ro.vendor.wifi.sap_dfs_as_sta=true
+ro.vendor.wifi.activity_timeout=100
+
+# Zygote
+ro.vendor.zygote=zygote64

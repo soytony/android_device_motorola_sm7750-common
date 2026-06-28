@@ -1,0 +1,22 @@
+<manifest version="8.0" type="framework">
+    <hal format="aidl">
+        <name>android.hardware.authgraph</name>
+        <fqname>IAuthGraphKeyExchange/default</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>com.android.hardware.keymint</name>
+        <fqname>IKeyMintDevice/strongbox</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>com.android.hardware.keymint</name>
+        <fqname>IKeyMintDevice/trustedui</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>com.android.hardware.security.sharedsecret</name>
+        <fqname>ISharedSecret/strongbox</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>com.android.hardware.security.sharedsecret</name>
+        <fqname>ISharedSecret/default</fqname>
+    </hal>
+</manifest>
