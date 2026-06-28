@@ -1,4 +1,4 @@
-# Motorola sun-common (SM7750)
+# Motorola sm7750-common (SM7750)
 
 Platform-common device tree for Motorola devices based on Qualcomm
 Snapdragon 7 Gen 4 (SM7750), platform codename "sun".
