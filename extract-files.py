@@ -10,7 +10,12 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/motorola/sm7750-common',
+    'hardware/qcom-caf/sm8750',
+    'hardware/qcom-caf/wlan',
     'hardware/motorola',
+    'vendor/qcom/opensource/commonsys-intf/display',
+    'vendor/qcom/opensource/commonsys/display',
+    'vendor/qcom/opensource/dataservices',
     'vendor/qcom/opensource/display',
 ]
 
