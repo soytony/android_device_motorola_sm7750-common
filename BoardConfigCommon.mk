@@ -56,9 +56,7 @@ BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 
 # DTB / DTBO
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
 TARGET_NEEDS_DTBOIMAGE := true
-TARGET_MERGE_DTBS_WILDCARD ?= sun*base
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
@@ -86,18 +84,19 @@ BOARD_USES_GENERIC_KERNEL_IMAGE := true
 # TARGET_KERNEL_SOURCE and TARGET_KERNEL_CONFIG will be set
 # when kernel source is available (Phase 2)
 
-# Kernel modules
-TARGET_KERNEL_EXT_MODULE_ROOT := kernel/motorola/sm7750-modules
 
+BOARD_SYSTEM_KERNEL_MODULES := $(wildcard vendor/motorola/sm7750-common/modules/system_dlkm/*.ko)
 BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.system_dlkm))
+BOARD_VENDOR_KERNEL_MODULES := $(wildcard vendor/motorola/sm7750-common/modules/vendor_dlkm/*.ko)
 BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load))
 BOARD_SYSTEM_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.systemdlkm_blocklist
 BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.blocklist
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard vendor/motorola/sm7750-common/modules/vendor_boot/*.ko)
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_boot))
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
-BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery $(COMMON_PATH)/modules.load.vendor_ramdisk))
-SYSTEM_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.system_dlkm))
+BOOT_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD)
+SYSTEM_KERNEL_MODULES := $(BOARD_SYSTEM_KERNEL_MODULES_LOAD)
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
