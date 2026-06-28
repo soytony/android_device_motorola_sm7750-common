@@ -85,7 +85,6 @@ WITH_LINEAGE_CHARGER := false
 PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     init.qti.display_boot.rc \
-    init.qti.display_boot.sh \
     vendor.qti.hardware.display.composer-service.rc \
     vendor.qti.hardware.display.composer-service.xml \
     vendor.qti.hardware.display.allocator-service \
@@ -108,7 +107,6 @@ PRODUCT_PACKAGES += \
     gnss@2.0-xtra-daemon.policy
 
 PRODUCT_PACKAGES += \
-    batching.conf \
     gnss_antenna_info.conf \
     gps.conf \
     izat.conf \
@@ -131,6 +129,9 @@ PRODUCT_PACKAGES += \
     init.qcom.recovery.rc \
     init.system.qcom.rc \
     init.target.rc \
+    init.qti.kernel.rc \
+    init.qti.kernel.target.rc \
+    init.qti.ufs.rc \
     ueventd.qcom.rc \
     init.class_main.sh \
     init.mmi.bootanim.sh \
@@ -347,8 +348,6 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     android.hardware.usb-service.qti \
     android.hardware.usb.gadget-service.qti \
-    init.qcom.usb.rc \
-    init.qcom.usb.sh
 
 PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/usb/etc
 
