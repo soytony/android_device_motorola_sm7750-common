@@ -17,13 +17,6 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.qti.display_boot.rc",
-    src: "init.qti.display_boot.rc",
-    sub_dir: "init",
-    vendor: true,
-}
-
-prebuilt_etc {
     name: "init.mmi.charge_only.rc",
     src: "init.mmi.charge_only.rc",
     sub_dir: "init/hw",
