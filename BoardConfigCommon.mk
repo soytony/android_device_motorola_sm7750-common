@@ -6,6 +6,9 @@
 
 COMMON_PATH := device/motorola/sm7750-common
 
+# Build
+BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
+
 # A/B
 AB_OTA_UPDATER := true
 
