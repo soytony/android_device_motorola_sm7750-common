@@ -1,5 +1,0 @@
-# Allow init to transition to bootanim
-type init_bootanim, domain;
-type init_bootanim_exec, file_type, exec_type;
-
-init_daemon_domain(init_bootanim)

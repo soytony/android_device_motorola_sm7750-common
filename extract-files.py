@@ -3,6 +3,10 @@
 # SPDX-FileCopyrightText: 2025 The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
+from extract_utils.fixups_blob import (
+    blob_fixup,
+    blob_fixups_user_type,
+)
 from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
@@ -19,9 +23,15 @@ namespace_imports = [
     'vendor/qcom/opensource/display',
 ]
 
+blob_fixups: blob_fixups_user_type = {
+    'system_ext/etc/permissions/vendor.qti.hardware.c2pa-V1-java.xml': blob_fixup()
+        .regex_replace(r'<\?xml version="2\.0"', r'<?xml version="1.0"'),
+}
+
 module = ExtractUtilsModule(
     'sm7750-common',
     'motorola',
+    blob_fixups=blob_fixups,
     namespace_imports=namespace_imports,
 )
 

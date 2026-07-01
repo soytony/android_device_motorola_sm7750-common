@@ -17,10 +17,6 @@
         <fqname>IGatekeeper/default</fqname>
     </hal>
     <hal format="aidl">
-        <name>android.hardware.nfc</name>
-        <fqname>INfc/default</fqname>
-    </hal>
-    <hal format="aidl">
         <name>android.hardware.secure_element</name>
         <fqname>ISecureElement/eSE1</fqname>
     </hal>
@@ -56,7 +52,4 @@
     <hal format="aidl" override="true">
         <name>vendor.qti.hardware.spu</name>
     </hal>
-    <sepolicy>
-        <version>202404</version>
-    </sepolicy>
 </manifest>
