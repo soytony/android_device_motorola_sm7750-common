@@ -71,12 +71,22 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 BOARD_BOOT_HEADER_VERSION := 4
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE += \
+    video=vfb:640x400,bpp=32,memsize=3072000 \
     nosoftlockup \
-    printk.devkmsg=on
+    console=ttynull \
+    qcom_geni_serial.con_enabled=0 \
+    pstore.compress=none \
+    printk.devkmsg=on \
+    mem.enable_mglru=1 \
+    firmware_class.path=/vendor/firmware_mnt/image
 BOARD_BOOTCONFIG += \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
-    androidboot.usbcontroller=a600000.dwc3
+    androidboot.usbcontroller=a600000.dwc3 \
+    androidboot.load_modules_parallel=true \
+    androidboot.hypervisor.protected_vm.supported=true \
+    androidboot.vendor.qspa=true \
+    androidboot.serialconsole=0
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
@@ -95,6 +105,13 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.l
 BOARD_SYSTEM_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.systemdlkm_blocklist
 BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.blocklist
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard vendor/motorola/sm7750-common/modules/vendor_boot/*.ko)
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES += \
+    vendor/motorola/sm7750-common/modules/vendor_dlkm/mmi_info.ko \
+    vendor/motorola/sm7750-common/modules/vendor_dlkm/mmi_relay.ko \
+    vendor/motorola/sm7750-common/modules/vendor_dlkm/sensors_class.ko \
+    vendor/motorola/sm7750-common/modules/vendor_dlkm/touchscreen_mmi.ko \
+    vendor/motorola/sm7750-common/modules/vendor_dlkm/goodix_brl_mmi.ko \
+    vendor/motorola/sm7750-common/modules/vendor_dlkm/focaltech_v3_4.ko
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_boot))
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
