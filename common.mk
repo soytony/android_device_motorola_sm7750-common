@@ -44,6 +44,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/linkerconfig/ld.config.txt:$(TARGET_COPY_OUT_ROOT)/linkerconfig/ld.config.txt
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/roadstr_touch_probe.sh:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/roadstr_touch_probe
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@7.1-impl \
