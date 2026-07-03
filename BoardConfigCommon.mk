@@ -108,6 +108,7 @@ BOARD_SYSTEM_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.systemdlkm_
 BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.blocklist
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard vendor/motorola/sm7750-common/modules/vendor_boot/*.ko)
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES += \
+    vendor/motorola/sm7750-common/modules/vendor_dlkm/mmi_annotate.ko \
     vendor/motorola/sm7750-common/modules/vendor_dlkm/mmi_info.ko \
     vendor/motorola/sm7750-common/modules/vendor_dlkm/mmi_relay.ko \
     vendor/motorola/sm7750-common/modules/vendor_dlkm/sensors_class.ko \

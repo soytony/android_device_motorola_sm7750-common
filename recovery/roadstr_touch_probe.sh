@@ -49,23 +49,27 @@ load_core()
     load_module touchscreen_mmi.ko || return 1
 }
 
+load_touch_common()
+{
+    load_core || return 1
+    load_module mmi_annotate.ko || return 1
+    load_module mmi_info.ko || return 1
+}
+
 case "${1:-all}" in
     core)
         load_core
         ;;
     goodix)
-        load_core || exit 1
-        load_module mmi_info.ko || exit 1
+        load_touch_common || exit 1
         load_module goodix_brl_mmi.ko
         ;;
     focaltech)
-        load_core || exit 1
-        load_module mmi_info.ko || exit 1
+        load_touch_common || exit 1
         load_module focaltech_v3_4.ko
         ;;
     all)
-        load_core || exit 1
-        load_module mmi_info.ko || exit 1
+        load_touch_common || exit 1
         load_module goodix_brl_mmi.ko || log "goodix load failed"
         load_module focaltech_v3_4.ko || log "focaltech load failed"
         ;;
