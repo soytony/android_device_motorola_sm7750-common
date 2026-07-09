@@ -1,0 +1,1 @@
+genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a90000.i2c/i2c-4/4-005a/leds/vibrator u:object_r:sysfs_leds:s0

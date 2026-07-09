@@ -55,6 +55,10 @@ TARGET_PROVIDES_AUDIO_HAL := true
 TARGET_PROVIDES_LIBAGM := true
 TARGET_PROVIDES_LIBAR_PAL := true
 
+# Use Motorola's stock prebuilt vibrator HAL service instead of the QCOM
+# source-built service pulled by vibrator-vendor-product.mk.
+TARGET_DISABLE_VIBRATOR := true
+
 # Bootloader
 TARGET_NO_BOOTLOADER := true
 
