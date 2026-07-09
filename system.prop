@@ -1,0 +1,2 @@
+# Legacy crypto compatibility
+persist.vold.ecryptfs_supported=true

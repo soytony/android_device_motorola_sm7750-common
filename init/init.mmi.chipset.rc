@@ -3,6 +3,10 @@ import /vendor/etc/init/hw/init.mmi.charge_only.rc
 
 on init
     wait_for_prop vendor.all.modules.ready 1
+    setprop vendor.roadstr.secure_stack.stage modules_ready
+
+on property:vendor.roadstr.secure_stack.stage=modules_ready && property:init.svc.vendor.ssgtzd=running && property:init.svc.vendor.minkdaemon=running
+    setprop vendor.roadstr.secure_stack.ready 1
 
 on init && property:ro.boot.default_usb_mode=device
     setprop vendor.usb.controller ${ro.boot.usbcontroller}

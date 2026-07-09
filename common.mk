@@ -37,14 +37,25 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
 
+# Temporary bring-up Gatekeeper. The QTI service currently starts but does not
+# register IGatekeeper/default, which crashes system_server's BiometricService.
+PRODUCT_PACKAGES += \
+    com.android.hardware.gatekeeper.nonsecure
+
 # Recovery linker configuration
 PRODUCT_PACKAGES += \
-    ld.config.recovery.txt
+    ld.config.recovery.txt \
+    recovery_touch_start.recovery
+
+# Recovery bring-up: allow ADB without host-key authorization.
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    ro.adb.secure.recovery=0
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/linkerconfig/ld.config.txt:$(TARGET_COPY_OUT_ROOT)/linkerconfig/ld.config.txt
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init/init.qcom.recovery.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.qcom.rc \
     $(LOCAL_PATH)/recovery/roadstr_touch_probe.sh:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/roadstr_touch_probe
 
 # Audio
@@ -94,11 +105,17 @@ WITH_LINEAGE_CHARGER := false
 PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     init.qti.display_boot.rc \
+    init.qti.display_boot.sh \
+    mapper.qti \
     vendor.qti.hardware.display.composer-service.rc \
     vendor.qti.hardware.display.composer-service.xml \
     vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.composer-service \
-    vendor.qti.hardware.display.demura-service
+    vendor.qti.hardware.display.demura-service \
+    vendor.qti.hardware.display.snapalloc-impl \
+    vendor.qti.hardware.display.config-V5-ndk.vendor \
+    vendor.qti.hardware.display.mapper@2.0.vendor \
+    vendor.qti.hardware.display.postproc-V1-ndk.vendor
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -181,20 +198,22 @@ $(call soong_config_set,lineage_health,charging_control_charging_enabled,0)
 $(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/power_supply/battery/device/force_charging_disable)
 $(call soong_config_set_bool,lineage_health,charging_control_supports_bypass,false)
 
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay-service.sdm \
-    vendor.lineage.livedisplay-service.sysfs
-
-$(call soong_config_set_bool,livedisplay_sdm,enable_dm,false)
-$(call soong_config_set_bool,livedisplay_sysfs,enable_af,true)
-$(call soong_config_set_bool,livedisplay_sysfs,enable_se,true)
+# LiveDisplay is disabled during bringup. The SDM service crashes the display
+# composer via display.qservice, and the sysfs service aborts without the
+# expected adaptive-backlight nodes.
 
 # Media
 PRODUCT_PACKAGES += \
-    libavservices_minijail
+    libavservices_minijail.vendor
+
+PRODUCT_PACKAGES += \
+    mbedtls_qti_vendor_symlink
 
 $(call soong_config_set_bool,stagefright,target_disable_thumbnail_block_model,true)
+
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light-V2-ndk.vendor
 
 # Memtrack
 PRODUCT_PACKAGES += \
@@ -283,7 +302,6 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr \
-    libqti-perfd-client
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
@@ -298,9 +316,32 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl-qti_vendor_symlink \
     android.hardware.sensors-service.multihal \
+    libsensorndkbridge \
     sensors.dynamic_sensor_hal \
     sensors.moto_ext
+
+# NDK vendor variants — trigger Soong to build vendor copies of AOSP NDK
+# libraries that stock Motorola blobs link against.
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth.audio-V3-ndk.vendor \
+    android.hardware.bluetooth.audio-V4-ndk.vendor \
+    android.hardware.graphics.allocator-V1-ndk.vendor
+
+
+# Prebuilt vendor library overrides — replace AOSP-built libraries that have
+# CFI or other incompatibilities with stock Motorola blobs.
+PRODUCT_PACKAGES += \
+    libcodec2_aidl_vendor \
+    libtinyxml2_poweropt \
+    libtinyxml2_vendor \
+    libcodec2_hidl_1_0_vendor \
+    libcodec2_hidl_1_1_vendor \
+    libcodec2_hidl_1_2_vendor \
+    libqti-perfd-client_vendor
+
+# Use stock blobs to overwrite AOSP/QCOM vendor variants
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -309,7 +350,6 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel \
     hardware/motorola \
     hardware/lineage/interfaces/power-libperfmgr \
-    hardware/qcom-caf/common/libqti-perfd-client
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -363,8 +403,11 @@ PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/usb/etc
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/usb_compositions.conf:$(TARGET_COPY_OUT_ODM)/etc/usb_compositions.conf
 
-# Vendor service manager
+# HIDL service managers
+PRODUCT_HIDL_ENABLED := true
+
 PRODUCT_PACKAGES += \
+    hwservicemanager \
     vndservicemanager
 
 # Vibrator
@@ -379,10 +422,14 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     device/motorola/sm7750-common/vintf/vendor_framework_compatibility_matrix.xml \
     hardware/motorola/vintf/device_framework_matrix.xml \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml
-DEVICE_FRAMEWORK_MANIFEST_FILE += device/motorola/sm7750-common/vintf/framework_manifest.xml
+DEVICE_MANIFEST_FILE := \
+    device/motorola/sm7750-common/vintf/manifest.xml \
+    device/motorola/sm7750-common/vintf/manifest_audio_hidl.xml
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
-DEVICE_MANIFEST_FILE += \
-    device/motorola/sm7750-common/vintf/manifest.xml
+
+# Shipping API
+BOARD_SHIPPING_API_LEVEL := 202404
+PRODUCT_SHIPPING_API_LEVEL := 36
 
 # WiFi
 PRODUCT_PACKAGES += \
@@ -403,6 +450,16 @@ PRODUCT_PACKAGES += \
     firmware_wlanmdsp.otaupdate_symlink \
     firmware_wlan_mac.bin_symlink \
     firmware_WCNSS_qcom_cfg.ini_symlink
+
+# ART heap profile from stock roadstr vendor build.prop. Without these, zygote
+# falls back to a 16 MB growth limit and system_server OOMs during boot.
+PRODUCT_VENDOR_PROPERTIES += \
+    dalvik.vm.heapstartsize=16m \
+    dalvik.vm.heapgrowthlimit=256m \
+    dalvik.vm.heapsize=512m \
+    dalvik.vm.heaptargetutilization=0.5 \
+    dalvik.vm.heapminfree=8m \
+    dalvik.vm.heapmaxfree=32m
 
 # Inherit from vendor blobs
 $(call inherit-product, vendor/motorola/sm7750-common/sm7750-common-vendor.mk)

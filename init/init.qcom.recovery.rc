@@ -37,3 +37,13 @@ on property:ro.boot.usbcontroller=*
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
+on boot
+    start recovery_touch
+
+service recovery_touch /system/bin/recovery_touch_start
+    class default
+    user root
+    group root
+    disabled
+    oneshot

@@ -12,17 +12,6 @@
         <version>3</version>
         <fqname>IFingerprint/default</fqname>
     </hal>
-    <hal format="aidl">
-        <name>android.hardware.gatekeeper</name>
-        <fqname>IGatekeeper/default</fqname>
-    </hal>
-    <hal format="aidl">
-        <name>android.hardware.secure_element</name>
-        <fqname>ISecureElement/eSE1</fqname>
-    </hal>
-    <hal format="aidl" override="true">
-        <name>android.hardware.security.keymint</name>
-    </hal>
     <hal format="aidl" override="true">
         <name>android.hardware.weaver</name>
     </hal>
@@ -51,5 +40,14 @@
     </hal>
     <hal format="aidl" override="true">
         <name>vendor.qti.hardware.spu</name>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.qccsyshal</name>
+        <transport>hwbinder</transport>
+        <version>1.2</version>
+        <interface>
+            <name>IQccsyshal</name>
+            <instance>qccsyshal</instance>
+        </interface>
     </hal>
 </manifest>

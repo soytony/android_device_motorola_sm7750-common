@@ -1,3 +1,2 @@
 # Platform-common system_ext properties for SM7750 (sun)
-ro.adb.secure=1
 ro.control_kcmd=0

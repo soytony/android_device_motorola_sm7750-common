@@ -9,6 +9,11 @@ COMMON_PATH := device/motorola/sm7750-common
 # Build
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
+TARGET_USES_VULKAN := true
+
+# Roadstr stock vendor declares board API 202404. Android 16's release board
+# API currently defaults generated vendor props to 202504 without this override.
+BOARD_API_LEVEL_PROP_OVERRIDE := 202404
 
 # A/B
 AB_OTA_UPDATER := true
@@ -33,7 +38,7 @@ TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a-dotprod
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_VARIANT := generic
-TARGET_CPU_VARIANT_RUNTIME := kryo300
+TARGET_CPU_VARIANT_RUNTIME := oryon
 
 # Audio
 AUDIO_FEATURE_ENABLED_DLKM := true
@@ -88,6 +93,8 @@ BOARD_BOOTCONFIG += \
     androidboot.vendor.qspa=true \
     androidboot.adb_early=1 \
     androidboot.init_fatal_panic=true \
+    androidboot.roadstr_init_probe=trace_actions \
+    androidboot.selinux=permissive \
     androidboot.serialconsole=0
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
@@ -159,6 +166,7 @@ TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 # Properties
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
 TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
+TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 TARGET_SYSTEM_EXT_PROP += $(COMMON_PATH)/system_ext.prop
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 
