@@ -58,12 +58,3 @@
 # IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-service mmi-bootanim /vendor/bin/init.mmi.bootanim.sh
-    class main
-    user root
-    oneshot
-    disabled
-
-on property:init.svc.bootanim=running
-    start mmi-bootanim

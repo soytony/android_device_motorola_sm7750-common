@@ -1,2 +1,4 @@
 # Stub file_contexts for sm7750-common
 # Will be populated as device-specific policies are needed
+
+/vendor/bin/init\.mmi\.bootanim\.sh    u:object_r:vendor_shell_exec:s0
