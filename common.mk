@@ -64,6 +64,8 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_PACKAGES += \
+    audiohalservice.qti \
+    libaudiocorehal.qti \
     android.hardware.audio@7.1-impl \
     android.hardware.audio.effect@7.0-impl \
     android.hardware.audio.service \
@@ -244,6 +246,10 @@ PRODUCT_PACKAGES += \
     SystemUIResCommon \
     TelephonyResCommon \
     WifiResCommon \
+    FrameworkAutoVendorRoadstr \
+    MotoFrameworkHWDualSimRoadstr \
+    MotoFrameworkWFDRoadstr \
+    SecureElementResTarget_Vendor \
     FrameworksResTarget \
     NcmTetheringOverlay \
     WifiResTarget
@@ -350,6 +356,7 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
+    $(LOCAL_PATH)/overlay \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/motorola \

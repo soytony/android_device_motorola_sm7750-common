@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <integer name="config_autoBrightnessBrighteningLightDebounce">500</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">500</integer>
+    <integer name="config_cameraLaunchGestureSensorType">65540</integer>
+    <integer name="config_defaultAlarmVibrationIntensity">3</integer>
+    <integer name="config_defaultHapticFeedbackIntensity">3</integer>
+    <integer name="config_defaultMediaVibrationIntensity">3</integer>
+    <integer name="config_defaultNotificationVibrationIntensity">3</integer>
+    <integer name="config_defaultPeakRefreshRate">120</integer>
+    <integer name="config_defaultRefreshRate">0</integer>
+    <integer name="config_defaultRefreshRateInZone">90</integer>
+    <integer name="config_defaultRingVibrationIntensity">3</integer>
+    <integer name="config_multiuserMaximumUsers">4</integer>
+    <integer name="config_safe_media_volume_usb_mB">-2000</integer>
+    <integer name="config_screenBrightnessDark">1</integer>
+    <integer name="config_screenBrightnessDim">1</integer>
+    <integer name="config_screenBrightnessDoze">1</integer>
+    <integer name="config_screenBrightnessSettingDefault">98</integer>
+    <integer name="config_screenBrightnessSettingMinimum">1</integer>
+    <integer name="config_stableDeviceDisplayHeight">2400</integer>
+    <integer name="config_stableDeviceDisplayWidth">1080</integer>
+    <integer name="device_idle_idle_after_inactive_to_ms">15000</integer>
+    <integer name="device_idle_idle_pending_to_ms">60000</integer>
+    <integer name="device_idle_idle_to_ms">3600000</integer>
+    <integer name="device_idle_inactive_to_ms">15000</integer>
+    <integer name="device_idle_max_idle_pending_to_ms">60000</integer>
+    <integer name="device_idle_min_time_to_alarm_ms">600000</integer>
+    <integer name="device_idle_sensing_to_ms">15000</integer>
+</resources>
