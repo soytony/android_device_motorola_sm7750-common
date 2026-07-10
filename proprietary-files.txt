@@ -1401,6 +1401,10 @@ system_ext/framework/com.qualcomm.qti.uceservice-V2.1-java.jar
 system_ext/framework/com.qualcomm.qti.uceservice-V2.2-java.jar
 system_ext/framework/com.qualcomm.qti.uceservice-V2.3-java.jar
 system_ext/framework/dpmapi.jar
+system_ext/etc/permissions/moto-ims-ext.xml
+system_ext/etc/permissions/moto-telephony.xml
+system_ext/framework/moto-ims-ext.jar
+system_ext/framework/moto-telephony.jar
 system_ext/framework/qcom-moto-ims-ext.jar
 system_ext/framework/qcom-moto-telephony-ext.jar
 system_ext/framework/qti-telephony-common.jar
