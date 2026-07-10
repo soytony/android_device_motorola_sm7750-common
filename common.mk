@@ -1,5 +1,4 @@
 #
-#
 # SPDX-FileCopyrightText: The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -431,10 +430,6 @@ DEVICE_MANIFEST_FILE := \
     device/motorola/sm7750-common/vintf/manifest.xml \
     device/motorola/sm7750-common/vintf/manifest_audio_hidl.xml
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
-
-# Shipping API
-BOARD_SHIPPING_API_LEVEL := 202404
-PRODUCT_SHIPPING_API_LEVEL := 36
 
 # WiFi
 PRODUCT_PACKAGES += \
