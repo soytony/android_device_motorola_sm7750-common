@@ -65,10 +65,28 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_PACKAGES += \
     audiohalservice.qti \
+    libaudiocorehal.default \
     libaudiocorehal.qti \
-    android.hardware.audio@7.1-impl \
-    android.hardware.audio.effect@7.0-impl \
-    android.hardware.audio.service \
+    libagmipcservice \
+    libpalipcservice \
+    libpaleventnotifier \
+    libsoundtriggerhal.qti \
+    vendor.qti.hardware.bluetooth_audio@2.0.vendor \
+    vendor.qti.hardware.bluetooth_audio@2.1.vendor \
+    vendor.qti.hardware.bluetooth.audio-V2-ndk.vendor \
+    libaudioeffecthal.qti \
+    android.hardware.audio.common-V3-ndk.vendor \
+    android.hardware.audio.core-V2-ndk.vendor \
+    android.hardware.audio.core.sounddose-V1-ndk.vendor \
+    android.hardware.audio.core.sounddose-V2-ndk.vendor \
+    android.hardware.audio.effect-V2-ndk.vendor \
+    android.media.audio.common.types-V3-ndk.vendor \
+    libalsautilsv2.vendor \
+    libaudio_aidl_conversion_common_ndk.vendor \
+    libaudioplatformconverter.qti \
+    libaudioserviceexampleimpl \
+    libmediautils_vendor.vendor \
+    libmemunreachable.vendor \
     android.hardware.bluetooth.audio-impl \
     android.hardware.soundtrigger@2.3-impl \
     audio.bluetooth.default \
@@ -92,6 +110,7 @@ PRODUCT_PACKAGES += \
     libtinycompress \
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/vendor_audio_interfaces.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vendor_audio_interfaces.xml \
     frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration_7_0.xml \
     frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration_7_0.xml \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
@@ -434,8 +453,7 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     hardware/motorola/vintf/device_framework_matrix.xml \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml
 DEVICE_MANIFEST_FILE := \
-    device/motorola/sm7750-common/vintf/manifest.xml \
-    device/motorola/sm7750-common/vintf/manifest_audio_hidl.xml
+    device/motorola/sm7750-common/vintf/manifest.xml
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 
 # WiFi
