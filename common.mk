@@ -28,6 +28,7 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_OPTIONAL_vendor=true
 
 PRODUCT_PACKAGES += \
+    RoadstrCarrierConfigOverlay \
     checkpoint_gc \
     otapreopt_script
 
@@ -73,6 +74,8 @@ PRODUCT_PACKAGES += \
     libpalipcservice \
     libpaleventnotifier \
     libsoundtriggerhal.qti \
+    qti-audio-types-aidl-V1-ndk \
+    qtiaudiohalvendorextn \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor \
     vendor.qti.hardware.bluetooth_audio@2.1.vendor \
     vendor.qti.hardware.bluetooth.audio-V2-ndk.vendor \

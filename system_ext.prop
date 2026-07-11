@@ -1,2 +1,3 @@
 # Platform-common system_ext properties for SM7750 (sun)
+ro.audio.ihaladaptervendorextension_enabled=true
 ro.control_kcmd=0
