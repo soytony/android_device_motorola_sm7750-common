@@ -56,6 +56,7 @@ TARGET_DISABLE_VIBRATOR := true
 $(call soong_config_set_bool,qti_vibrator,use_stock_prebuilt_service,true)
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/seccomp_policy/mediacodec-arm64-additions.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
     $(LOCAL_PATH)/rootdir/linkerconfig/ld.config.txt:$(TARGET_COPY_OUT_ROOT)/linkerconfig/ld.config.txt
 
 PRODUCT_COPY_FILES += \
@@ -64,6 +65,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_PACKAGES += \
+    android.hardware.media.omx@1.0-service \
     audiohalservice.qti \
     libaudiocorehal.default \
     libaudiocorehal.qti \
@@ -75,6 +77,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.bluetooth_audio@2.1.vendor \
     vendor.qti.hardware.bluetooth.audio-V2-ndk.vendor \
     libaudioeffecthal.qti \
+    libcodec2_soft_common.vendor \
     android.hardware.audio.common-V3-ndk.vendor \
     android.hardware.audio.core-V2-ndk.vendor \
     android.hardware.audio.core.sounddose-V1-ndk.vendor \
@@ -479,6 +482,7 @@ PRODUCT_PACKAGES += \
 # ART heap profile from stock roadstr vendor build.prop. Without these, zygote
 # falls back to a 16 MB growth limit and system_server OOMs during boot.
 PRODUCT_VENDOR_PROPERTIES += \
+    media.c2.hal.selection=aidl \
     dalvik.vm.heapstartsize=16m \
     dalvik.vm.heapgrowthlimit=256m \
     dalvik.vm.heapsize=512m \

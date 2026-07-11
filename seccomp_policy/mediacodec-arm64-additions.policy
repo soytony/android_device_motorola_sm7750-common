@@ -1,0 +1,10 @@
+# Arm64 syscall names missing from the 32-bit mediacodec policy currently
+# shipped on the system partition. This file is loaded as the vendor
+# supplemental policy by android.hardware.media.omx@1.0-service.
+mmap: 1
+getuid: 1
+getrlimit: 1
+fstat: 1
+newfstatat: 1
+fstatfs: 1
+statfs: 1
