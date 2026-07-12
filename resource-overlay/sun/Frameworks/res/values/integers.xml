@@ -27,4 +27,7 @@
     <integer name="device_idle_max_idle_pending_to_ms">60000</integer>
     <integer name="device_idle_min_time_to_alarm_ms">600000</integer>
     <integer name="device_idle_sensing_to_ms">15000</integer>
+    <!-- Default: 60 MB. Bytes that the PinnerService will pin for Home app -->
+    <integer name="config_pinnerHomePinBytes">6291456</integer>
+
 </resources>

@@ -271,13 +271,10 @@ PRODUCT_PACKAGES += \
     SystemUIResCommon \
     TelephonyResCommon \
     WifiResCommon \
-    FrameworkAutoVendorRoadstr \
-    MotoFrameworkHWDualSimRoadstr \
-    MotoFrameworkWFDRoadstr \
+    FrameworksResSun \
+    WifiResSun \
     SecureElementResTarget_Vendor \
-    FrameworksResTarget \
-    NcmTetheringOverlay \
-    WifiResTarget
+    NcmTetheringOverlay
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true

@@ -22,4 +22,14 @@
     <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
     <bool name="config_zramWriteback">true</bool>
     <bool name="skip_restoring_network_selection">true</bool>
-    </resources>
+    <!-- Flag indicating whether we should enable smart battery. -->
+    <bool name="config_smart_battery_available">true</bool>
+    <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
+         in hardware. -->
+    <bool name="config_setColorTransformAccelerated">true</bool>
+    <!-- Whether the device enable the standalone (SA) mode of 5G NR.-->
+    <bool name="config_telephony5gStandalone">true</bool>
+    <!-- Whether the device enable the non-standalone (NSA) mode of 5G NR.-->
+    <bool name="config_telephony5gNonStandalone">true</bool>
+
+</resources>

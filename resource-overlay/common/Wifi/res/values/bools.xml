@@ -10,6 +10,14 @@
          is no longer indicative, and a separate config now exists for each band -->
     <bool name="config_wifi5ghzSupport">true</bool>
 
+    <bool name="config_wifiAllowInsecureEnterpriseConfigurationsForSettingsAndSUW">true</bool>
+    <bool name="config_wifiFrameworkMaxNumSpatialStreamDeviceOverrideEnable">false</bool>
+    <bool name="config_wifiSaeH2eSupported">true</bool>
+    <bool name="config_wifiSoftapPassphraseAsciiEncodableCheck">false</bool>
+    <bool name="config_wifi_revert_country_code_on_cellular_loss">true</bool>
+    <bool name="config_wifi_softap_acs_supported">true</bool>
+
+
     <!-- Boolean indicating whether 802.11r Fast BSS Transition is enabled on this platform -->
     <bool name="config_wifi_fast_bss_transition_enabled">true</bool>
 
@@ -18,9 +26,6 @@
          scan and wake the host when a configured SSID is detected by the dongle. This chipset
          capability can provide power savings when wifi needs to be always kept on. -->
     <bool name="config_wifi_background_scan_support">true</bool>
-
-    <!-- Integer indicating maximum hardware supported client number of soft ap -->
-    <integer name="config_wifiHardwareSoftapMaxClientCount">32</integer>
 
     <!-- Boolean indicating that only configurations that have the same pre-shared key will be linked -->
     <bool name="config_wifi_only_link_same_credential_configurations">false</bool>
@@ -39,9 +44,6 @@
 
     <!-- Wifi driver Automatic channel selection (ACS) for softap to include DFS channels -->
     <bool name="config_wifiSoftapAcsIncludeDfs">true</bool>
-
-    <!-- integer indicating additional disconnect delay (in ms) after IMS onLost() indication is received -->
-    <integer name="config_wifiDelayDisconnectOnImsLostMs">1000</integer>
 
     <!-- Enable Aware NDP interface selection on interface that already has network set up.
      Note: the default AOSP Android does not support multiple networks on the same Aware NDI.
