@@ -1,5 +1,10 @@
 # All unpinned blobs below are extracted from roadstr W1WRS36.39-25-2-1
 
+# EUICC
+product/priv-app/EuiccGoogle/EuiccGoogle.apk
+product/etc/default-permissions/default-permissions-com.google.android.euicc.xml
+product/etc/permissions/privapp-permissions-com.google.android.euicc.xml
+
 # ADSP
 vendor/lib64/libadsp_default_listener.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libadspd.so;MAKE_COPY_RULE_ONLY
