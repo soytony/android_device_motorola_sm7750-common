@@ -16,6 +16,8 @@
             method="registerService" mandatory="true"/>
     <library name="sthal" libraryName="libsoundtriggerhal.qti.so"
             method="createISoundTriggerFactory" mandatory="true"/>
+    <library name="btaudio" libraryName="android.hardware.bluetooth.audio-impl.so"
+            method="createIBluetoothAudioProviderFactory" mandatory="true"/>
     <library name="asr" libraryName="libqasr.so"
             method="registerService" mandatory="false"/>
 </libraries>
