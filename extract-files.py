@@ -26,6 +26,15 @@ namespace_imports = [
 blob_fixups: blob_fixups_user_type = {
     'system_ext/etc/permissions/vendor.qti.hardware.c2pa-V1-java.xml': blob_fixup()
         .regex_replace(r'<\?xml version="2\.0"', r'<?xml version="1.0"'),
+    # QCRIL database migrations default this to 1, which prevents MT SMS
+    # indications from reaching Android. Keep the property unknown/default-off.
+    (
+        'vendor/lib64/libqcrilNr.so',
+        'vendor/lib64/libril-db.so',
+    ): blob_fixup().binary_regex_replace(
+        rb'persist\.vendor\.radio\.poweron_opt',
+        rb'persist.vendor.radio.poweron_ign',
+    ),
 }
 
 module = ExtractUtilsModule(
