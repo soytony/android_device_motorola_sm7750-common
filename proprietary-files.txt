@@ -2620,6 +2620,7 @@ vendor/lib64/libGPreqcancel.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libGPreqcancel_svc.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libOpenCL.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libOpenCL_adreno.so;MAKE_COPY_RULE_ONLY
+vendor/lib64/libPeripheralStateUtils.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libQSEEComAPI.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libQnnHtp.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libQnnHtpV73Stub.so;MAKE_COPY_RULE_ONLY
