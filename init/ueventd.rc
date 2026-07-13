@@ -646,6 +646,8 @@ subsystem mem_buf_vm
 /dev/ipa_events         0660   radio      radio
 
 # Additional sensors
+/dev/goodix_fp                  0660    system  system
+/dev/jiiov_fp                  0660    system  system
 /sys/class/touchscreen/*    double_tap_enabled                                                0664    system  system
 /sys/class/touchscreen/*    double_tap_pressed                                                0664    system  system
 /sys/class/touchscreen/*    udfps_enabled                                                     0664    system  system
