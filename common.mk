@@ -37,11 +37,6 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
 
-# Temporary bring-up Gatekeeper. The QTI service currently starts but does not
-# register IGatekeeper/default, which crashes system_server's BiometricService.
-PRODUCT_PACKAGES += \
-    com.android.hardware.gatekeeper.nonsecure
-
 # Recovery linker configuration
 PRODUCT_PACKAGES += \
     ld.config.recovery.txt \

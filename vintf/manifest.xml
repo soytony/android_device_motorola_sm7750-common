@@ -12,6 +12,10 @@
         <version>3</version>
         <fqname>IFingerprint/default</fqname>
     </hal>
+    <hal format="aidl">
+        <name>android.hardware.gatekeeper</name>
+        <fqname>IGatekeeper/default</fqname>
+    </hal>
     <hal format="aidl" override="true">
         <name>android.hardware.weaver</name>
     </hal>

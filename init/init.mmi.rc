@@ -599,12 +599,19 @@ service vendor.ident-fps-sh /vendor/bin/init.oem.fingerprint.sh
     disabled
 
 service vendor.hal-fps-sh /vendor/bin/init.oem.fingerprint2.sh
+    # NFC and fingerprint share secure-world resources. Let NFC initialization
+    # settle before loading ancapp64; concurrent startup intermittently returns
+    # QSEE error 28, while both services coexist normally after initialization.
     class late_start
     user root
     group system
     # Sensor detection loads and unloads vendor fingerprint kernel modules.
     capabilities CHOWN MKNOD SYS_MODULE
     oneshot
+    disabled
+
+on property:sys.boot_completed=1
+    start vendor.hal-fps-sh
 
 service fpc_ident /vendor/bin/hw/fpc_ident
     class late_start
