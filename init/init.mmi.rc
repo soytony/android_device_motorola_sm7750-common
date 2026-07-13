@@ -602,7 +602,8 @@ service vendor.hal-fps-sh /vendor/bin/init.oem.fingerprint2.sh
     class late_start
     user root
     group system
-    capabilities CHOWN MKNOD
+    # Sensor detection loads and unloads vendor fingerprint kernel modules.
+    capabilities CHOWN MKNOD SYS_MODULE
     oneshot
 
 service fpc_ident /vendor/bin/hw/fpc_ident
