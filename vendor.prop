@@ -61,6 +61,9 @@ debug.sf.predict_hwc_composition_strategy=0
 vendor.gralloc.enable_snapalloc=1
 vendor.display.foss.config=1
 vendor.display.foss.config_path=/vendor/etc/display/FOSSConfig.xml
+# Keep HDR layers in the GPU target. Full-screen device composition does not
+# apply the panel's HDR brightness path correctly on Motorola's display stack.
+vendor.display.enable_hdr10_gpu_target=1
 vendor.display.only_report_first_mode=1
 vendor.display.disable_scaler=0
 vendor.display.disable_excl_rect=0
