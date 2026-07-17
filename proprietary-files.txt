@@ -911,6 +911,7 @@ vendor/lib64/libperfioctl.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libq-perflog.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libqspm-mem-utils-vendor.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libqti-perfd.so;MAKE_COPY_RULE_ONLY
+# Also installed in system_ext as libqti-perfd-client_system.so for workloadclassifier.
 vendor/lib64/libqti-perfd-client.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libqti-perfextn-intf.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/vendor.qti.hardware.perf2-V1-ndk.so;MAKE_COPY_RULE_ONLY
@@ -3110,6 +3111,7 @@ vendor/lib64/vendor.qti.memory.pasrmanager-V1-ndk.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/vendor.qti.memory.pasrmanager@1.0.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/vendor.qti.memory.pasrmanager@1.1.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/vendor.qti.qccsyshal_aidl-V1-ndk.so;MAKE_COPY_RULE_ONLY
+# Installed in both vendor and system_ext linker namespaces; see generated Android.bp.
 vendor/lib64/vendor.qti.qccvndhal_aidl-V1-ndk.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/vendor.qti.qccvndhal_aidl-halimpl.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/vendor.qti.qesdhal-impl.so;MAKE_COPY_RULE_ONLY

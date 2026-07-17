@@ -10,7 +10,17 @@ soong_namespace {
         "hardware/lineage/interfaces/power-libperfmgr",
         "hardware/motorola",
         "hardware/qcom-caf/common/libqti-perfd-client",
+        "vendor/motorola/sm7750-common",
     ],
+}
+
+// Motorola's system_ext performance JNI expects the newer system-client ABI,
+// while the shipped vendor client lacks only this HAL-version entry point.
+cc_library_shared {
+    name: "libqti-perfd-client_system",
+    srcs: ["shims/qti_perfd_client_system.cpp"],
+    shared_libs: ["libqti-perfd-client-impl_system"],
+    system_ext_specific: true,
 }
 
 install_symlink {
