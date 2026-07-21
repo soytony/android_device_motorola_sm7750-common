@@ -42,6 +42,15 @@ install_symlink {
     symlink_target: "/vendor/etc/wifi/qca6750/WCNSS_qcom_cfg.ini",
 }
 
+// The vendor QCA6750 module loads this regional supplement in addition to the
+// base configuration when the device is using the PRC WLAN profile.
+install_symlink {
+    name: "firmware_WCNSS_prc_cfg.ini_symlink",
+    vendor: true,
+    installed_location: "firmware/wlan/qca_cld/qca6750/WCNSS_prc_cfg.ini",
+    symlink_target: "/vendor/etc/wifi/qca6750/WCNSS_prc_cfg.ini",
+}
+
 install_symlink {
     name: "android.hardware.bluetooth@1.0-impl-qti_vendor_symlink",
     vendor: true,
