@@ -98,7 +98,6 @@ BOARD_BOOTCONFIG += \
     androidboot.adb_early=1 \
     androidboot.init_fatal_panic=true \
     androidboot.roadstr_init_probe=trace_actions \
-    androidboot.selinux=permissive \
     androidboot.serialconsole=0
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
