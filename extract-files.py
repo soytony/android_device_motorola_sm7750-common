@@ -29,6 +29,12 @@ blob_fixups: blob_fixups_user_type = {
     # Load Lineage's Motorola sub-HAL for touchscreen-backed wake gestures.
     'vendor/etc/sensors/hals.conf': blob_fixup()
         .add_line_if_missing('sensors.moto_ext.so'),
+    # The stock double-tap sub-HAL exclusively grabs the gesture input device,
+    # preventing InputReader and sensors.moto_ext from receiving its events.
+    'vendor/lib64/sensors.moto.so': blob_fixup().binary_regex_replace(
+        rb'\x01\xb2\x88\x52\x22\x00\x80\x52\x81\x00\xa8\x72',
+        rb'\x01\xb2\x88\x52\x02\x00\x80\x52\x81\x00\xa8\x72',
+    ),
     # QCRIL database migrations default this to 1, which prevents MT SMS
     # indications from reaching Android. Keep the property unknown/default-off.
     (
