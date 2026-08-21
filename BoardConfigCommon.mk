@@ -10,6 +10,7 @@ COMMON_PATH := device/motorola/sm7750-common
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 TARGET_USES_VULKAN := true
+TARGET_DISABLE_VIBRATOR := true
 
 # Roadstr stock vendor declares board API 202404. Android 16's release board
 # API currently defaults generated vendor props to 202504 without this override.

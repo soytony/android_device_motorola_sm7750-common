@@ -433,6 +433,7 @@ PRODUCT_PACKAGES += \
     vndservicemanager
 
 # Vibrator
+$(call soong_config_set_bool,qti_vibrator,use_stock_prebuilt_service,true)
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service_prebuilt
 
