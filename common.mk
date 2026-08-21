@@ -46,11 +46,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.adb.secure.recovery=0
 
-# Use Motorola's stock prebuilt vibrator HAL service instead of the QCOM
-# source-built service pulled by vibrator-vendor-product.mk.
-TARGET_DISABLE_VIBRATOR := true
-$(call soong_config_set_bool,qti_vibrator,use_stock_prebuilt_service,true)
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp_policy/mediacodec-arm64-additions.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
     $(LOCAL_PATH)/rootdir/linkerconfig/ld.config.txt:$(TARGET_COPY_OUT_ROOT)/linkerconfig/ld.config.txt
