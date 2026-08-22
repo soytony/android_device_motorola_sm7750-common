@@ -357,11 +357,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcodec2_aidl_vendor \
     libtinyxml2_poweropt \
-    libtinyxml2_vendor \
     libcodec2_hidl_1_0_vendor \
     libcodec2_hidl_1_1_vendor \
     libcodec2_hidl_1_2_vendor \
     libqti-perfd-client_vendor
+
+# RoadSTR uses AOSP tinyxml2 globally; keep Motorola copy private to poweropt.
+ifeq ($(ROADSTR_HAS_NO_FM_TUNER),)
+PRODUCT_PACKAGES += libtinyxml2_vendor
+endif
 
 # Use stock blobs to overwrite AOSP/QCOM vendor variants
 
