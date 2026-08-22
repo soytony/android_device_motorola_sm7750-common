@@ -357,7 +357,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcodec2_aidl_vendor \
     libtinyxml2_poweropt \
-    libtinyxml2_vendor \
     libcodec2_hidl_1_0_vendor \
     libcodec2_hidl_1_1_vendor \
     libcodec2_hidl_1_2_vendor \
