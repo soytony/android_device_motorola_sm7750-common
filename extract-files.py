@@ -24,6 +24,12 @@ namespace_imports = [
 ]
 
 blob_fixups: blob_fixups_user_type = {
+    # Android 16 host_init_verifier requires an explicit service user.
+    'vendor/etc/init/hw/init.mmi.tcmd.rc': blob_fixup()
+        .regex_replace(
+            r'(service vendor\.tcmd /vendor/bin/mot_tcmd\n    class core\n)',
+            r'\1    user root\n',
+        ),
     'system_ext/etc/permissions/vendor.qti.hardware.c2pa-V1-java.xml': blob_fixup()
         .regex_replace(r'<\?xml version="2\.0"', r'<?xml version="1.0"'),
     # Load Lineage's Motorola sub-HAL for touchscreen-backed wake gestures.

@@ -93,7 +93,6 @@ BOARD_BOOTCONFIG += \
     androidboot.hypervisor.protected_vm.supported=true \
     androidboot.vendor.qspa=true \
     androidboot.adb_early=1 \
-    androidboot.init_fatal_panic=true \
     androidboot.selinux=permissive \
     androidboot.serialconsole=0
 BOARD_KERNEL_IMAGE_NAME := Image
@@ -114,14 +113,6 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.l
 BOARD_SYSTEM_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.systemdlkm_blocklist
 BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.blocklist
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard vendor/motorola/sm7750-common/modules/vendor_boot/*.ko)
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES += \
-    vendor/motorola/sm7750-common/modules/vendor_dlkm/mmi_annotate.ko \
-    vendor/motorola/sm7750-common/modules/vendor_dlkm/mmi_info.ko \
-    vendor/motorola/sm7750-common/modules/vendor_dlkm/mmi_relay.ko \
-    vendor/motorola/sm7750-common/modules/vendor_dlkm/sensors_class.ko \
-    vendor/motorola/sm7750-common/modules/vendor_dlkm/touchscreen_mmi.ko \
-    vendor/motorola/sm7750-common/modules/vendor_dlkm/goodix_brl_mmi.ko \
-    vendor/motorola/sm7750-common/modules/vendor_dlkm/focaltech_v3_4.ko
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_boot))
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))

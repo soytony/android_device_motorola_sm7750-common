@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from roadstr W1WRS36.39-25-2-1
+# All unpinned blobs below are extracted from roadstr W1WRS36.39-115-2
 
 # EUICC
 product/priv-app/EuiccGoogle/EuiccGoogle.apk
@@ -1216,27 +1216,27 @@ system_ext/priv-app/xrvdservice/xrvdservice.apk
 
 # System_ext binaries
 system_ext/bin/MemHalTest-system
-system_ext/bin/diag_callback_sample_system
-system_ext/bin/diag_dci_sample_system
-system_ext/bin/diag_mdlog_system
-system_ext/bin/dpmd
+system_ext/bin/diag_callback_sample_system;MAKE_COPY_RULE_ONLY
+system_ext/bin/diag_dci_sample_system;MAKE_COPY_RULE_ONLY
+system_ext/bin/diag_mdlog_system;MAKE_COPY_RULE_ONLY
+system_ext/bin/dpmd;MAKE_COPY_RULE_ONLY
 system_ext/bin/dun-server
 system_ext/bin/init.mmi.bootlog-dmesg.sh
 system_ext/bin/init.mmi.bootlog-logcat.sh
 system_ext/bin/init.mmi.bootlog.sh
 system_ext/bin/motsettings
 system_ext/bin/perfservice
-system_ext/bin/qccsyshal@1.2-service
-system_ext/bin/qccsyshal_aidl-service
-system_ext/bin/qcrosvm
+system_ext/bin/qccsyshal@1.2-service;MAKE_COPY_RULE_ONLY
+system_ext/bin/qccsyshal_aidl-service;MAKE_COPY_RULE_ONLY
+system_ext/bin/qcrosvm;MAKE_COPY_RULE_ONLY
 system_ext/bin/qsguard
-system_ext/bin/qspmsvc
+system_ext/bin/qspmsvc;MAKE_COPY_RULE_ONLY
 system_ext/bin/qxrsplitauxservice
-system_ext/bin/sigma_miracasthalservice64
-system_ext/bin/sigma_miracasthalservice_aidl
+system_ext/bin/sigma_miracasthalservice64;MAKE_COPY_RULE_ONLY
+system_ext/bin/sigma_miracasthalservice_aidl;MAKE_COPY_RULE_ONLY
 system_ext/bin/tcmd_system;MAKE_COPY_RULE_ONLY
-system_ext/bin/test_diag_system
-system_ext/bin/wfdservice64
+system_ext/bin/test_diag_system;MAKE_COPY_RULE_ONLY
+system_ext/bin/wfdservice64;MAKE_COPY_RULE_ONLY
 
 # System_ext etc
 system_ext/etc/MotoDesktopAppConfig/com.motorola.launcher3.desktop-config.xml
@@ -1247,7 +1247,6 @@ system_ext/etc/default-permissions/default-permission-com.motorola.ccc.ota.xml
 system_ext/etc/default-permissions/default-permission-com.motorola.installer.xml
 system_ext/etc/default-permissions/default-permissions-com.bluetooth.aptxmode.xml
 system_ext/etc/default-permissions/default-permissions-com.motorola.batterycare.xml
-system_ext/etc/default-permissions/default-permissions-com.motorola.magicwords.xml
 system_ext/etc/default-permissions/default-permissions-com.motorola.mobiledesktop.core.xml
 system_ext/etc/default-permissions/default-permissions-com.motorola.motocit.xml
 system_ext/etc/default-permissions/default-permissions-com.motorola.msimsettings.xml
@@ -1373,7 +1372,6 @@ system_ext/etc/hdr_config/wnr_on/wnr_params.txt
 system_ext/etc/motorola/bgintents/com.motorola.batterycare.bgintents.xml
 system_ext/etc/motorola/bgintents/com.motorola.freeform.bgintents.xml
 system_ext/etc/motorola/bgintents/com.motorola.lifetimedata.bgintents.xml
-system_ext/etc/motorola/bgintents/com.motorola.magicwords.bgintents.xml
 system_ext/etc/nondisable/com.motorola.ccc.devicemanagement.nondisable.xml
 system_ext/etc/nondisable/com.motorola.ccc.ota.xml
 system_ext/etc/nondisable/com.motorola.installer.xml
@@ -1388,7 +1386,7 @@ system_ext/etc/seccomp_policy/qcrosvm.policy
 system_ext/etc/seccomp_policy/sxraux-arm.policy
 system_ext/etc/seccomp_policy/tcmd.policy
 system_ext/etc/seccomp_policy/wfdservice64.policy
-system_ext/etc/vintf/manifest/android.hidl.allocator@1.0-service.xml
+system_ext/etc/vintf/manifest/android.hidl.allocator@1.0-service.xml;MAKE_COPY_RULE_ONLY
 system_ext/etc/vintf/manifest/atcmdfwd-saidl.xml
 system_ext/etc/vintf/manifest/vendor.qti.hardware.sigma_miracast.xml
 system_ext/etc/vintf/manifest/vendor.qti.hardware.sigma_miracast_aidl.xml
@@ -1408,12 +1406,6 @@ system_ext/framework/com.qualcomm.qti.uceservice-V2.1-java.jar
 system_ext/framework/com.qualcomm.qti.uceservice-V2.2-java.jar
 system_ext/framework/com.qualcomm.qti.uceservice-V2.3-java.jar
 system_ext/framework/dpmapi.jar
-system_ext/etc/permissions/moto-ims-ext.xml
-system_ext/etc/permissions/moto-telephony.xml
-system_ext/framework/moto-ims-ext.jar
-system_ext/framework/moto-telephony.jar
-system_ext/framework/qcom-moto-ims-ext.jar
-system_ext/framework/qcom-moto-telephony-ext.jar
 system_ext/framework/qti-telephony-common.jar
 system_ext/framework/qti-telephony-hidl-wrapper.jar
 system_ext/framework/qti-telephony-utils.jar
@@ -1754,7 +1746,6 @@ system_ext/etc/permissions/dpmapi.xml
 system_ext/etc/permissions/embms-noship_product_privapp_permissions_qti.xml
 system_ext/etc/permissions/feature-com.motorola.actioncore.xml
 system_ext/etc/permissions/feature-com.motorola.batterycare.xml
-system_ext/etc/permissions/feature-com.motorola.magicwords.xml
 system_ext/etc/permissions/feature-com.motorola.motolivewallpaper.stylize.xml
 system_ext/etc/permissions/feature-com.motorola.motolivewallpaper3.xml
 system_ext/etc/permissions/feature-com.motorola.securityhub.xml
@@ -1782,7 +1773,6 @@ system_ext/etc/permissions/privapp-permissions-com.motorola.installer.xml
 system_ext/etc/permissions/privapp-permissions-com.motorola.launcher3.xml
 system_ext/etc/permissions/privapp-permissions-com.motorola.lifetimedata.xml
 system_ext/etc/permissions/privapp-permissions-com.motorola.livewallpaper.xml
-system_ext/etc/permissions/privapp-permissions-com.motorola.magicwords.xml
 system_ext/etc/permissions/privapp-permissions-com.motorola.mobiledesktop.core.xml
 system_ext/etc/permissions/privapp-permissions-com.motorola.motcameradesktop.xml
 system_ext/etc/permissions/privapp-permissions-com.motorola.motocare.xml
@@ -1882,9 +1872,9 @@ vendor/etc/vintf/manifest/android.hardware.radio.sim.xml
 vendor/etc/vintf/manifest/android.hardware.radio.voice.xml
 vendor/etc/vintf/manifest/android.hardware.secure_element.xml
 vendor/etc/vintf/manifest/android.hardware.security.keymint-service-qti.xml
-vendor/etc/vintf/manifest/android.hardware.sensors-multihal.xml
-vendor/etc/vintf/manifest/android.hardware.wifi.hostapd.xml
-vendor/etc/vintf/manifest/android.hardware.wifi.supplicant.xml
+vendor/etc/vintf/manifest/android.hardware.sensors-multihal.xml;MAKE_COPY_RULE_ONLY
+vendor/etc/vintf/manifest/android.hardware.wifi.hostapd.xml;MAKE_COPY_RULE_ONLY
+vendor/etc/vintf/manifest/android.hardware.wifi.supplicant.xml;MAKE_COPY_RULE_ONLY
 vendor/etc/vintf/manifest/atfwd-saidl.xml
 vendor/etc/vintf/manifest/bluetooth-finder.xml
 vendor/etc/vintf/manifest/bluetooth_hci.xml
@@ -3135,21 +3125,7 @@ vendor/gpu/kbc/unified_kbcs_64.bin
 vendor/gpu/kbc/unified_kbcs_64_a730.bin
 vendor/gpu/kbc/unified_ksqs.bin
 vendor/gpu/kbc/unified_ksqs_a730.bin
-odm/etc/permissions/sku_dn/unavail.com.android.se.xml
-odm/etc/permissions/sku_dnes/android.hardware.nfc.ese.xml
-odm/etc/permissions/sku_dnes/android.hardware.se.omapi.ese.xml
-odm/etc/permissions/sku_dnes/android.hardware.strongbox_keystore.xml
 odm/etc/permissions/sku_n/unavail.com.android.se.xml
-odm/etc/permissions/sku_nes/android.hardware.nfc.ese.xml
-odm/etc/permissions/sku_nes/android.hardware.se.omapi.ese.xml
-odm/etc/permissions/sku_nes/android.hardware.strongbox_keystore.xml
-odm/etc/permissions/sku_nv/unavail.com.android.se.xml
-odm/etc/ueventd.rc
-odm/etc/vintf/manifest_dn.xml
-odm/etc/vintf/manifest_dnes.xml
-odm/etc/vintf/manifest_n.xml
-odm/etc/vintf/manifest_nes.xml
-odm/etc/vintf/manifest_nv.xml
 vendor/overlay/SecureElementResTarget_Vendor.apk;MAKE_COPY_RULE_ONLY
 vendor/overlay/StSecureElementWithouteSEResOverlay.apk;MAKE_COPY_RULE_ONLY
 vendor/usr/keylayout/fts_ts.kl

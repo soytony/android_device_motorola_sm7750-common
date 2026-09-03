@@ -479,6 +479,7 @@ PRODUCT_PACKAGES += \
 # falls back to a 16 MB growth limit and system_server OOMs during boot.
 PRODUCT_VENDOR_PROPERTIES += \
     media.c2.hal.selection=aidl \
+    vendor.gatekeeper.is_security_level_spu=0 \
     dalvik.vm.heapstartsize=16m \
     dalvik.vm.heapgrowthlimit=256m \
     dalvik.vm.heapsize=512m \
