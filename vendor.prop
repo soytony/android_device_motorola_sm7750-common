@@ -69,6 +69,12 @@ vendor.display.disable_excl_rect=0
 vendor.display.disable_excl_rect_partial_fb=1
 vendor.display.comp_mask=0
 vendor.display.disable_idle_fps_switch=0
+# Stock Motorola policy disables SDM system-load gating. Without this, the
+# composer falls back to an unavailable 60 Hz configuration when fuse data is
+# absent on Lineage and rejects primary-display creation.
+vendor.display.disable_system_load_check=1
+vendor.display.use_desiredpresenttime_as_candidate=1
+vendor.display.boost_RR_during_brightness_dimming=1
 vendor.display.force_lm_to_fb_config=1
 vendor.display.disable_cwb_idle_fallback=1
 
