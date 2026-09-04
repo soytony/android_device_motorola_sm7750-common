@@ -65,7 +65,6 @@ pmic-glink-debug.ko
 wcd_usbss_i2c.ko
 dmesg_dumper.ko
 gh_tlmm_vm_mem_access.ko
-qfprom-sys.ko
 msm_performance.ko
 fsa4480-i2c.ko
 msm_show_epoch.ko
@@ -153,7 +152,6 @@ governor_gpubw_mon.ko
 qcom-spmi-adc5-gen3.ko
 qcom-vadc-common.ko
 qti-glink-adc.ko
-nvmem_qfprom.ko
 slimbus.ko
 slim-qcom-ngd-ctrl.ko
 hwmon.ko
