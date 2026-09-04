@@ -63,12 +63,16 @@ vendor.display.foss.config_path=/vendor/etc/display/FOSSConfig.xml
 # Keep HDR layers in the GPU target. Full-screen device composition does not
 # apply the panel's HDR brightness path correctly on Motorola's display stack.
 vendor.display.enable_hdr10_gpu_target=1
-vendor.display.only_report_first_mode=1
+vendor.display.only_report_first_mode=0
 vendor.display.disable_scaler=0
 vendor.display.disable_excl_rect=0
 vendor.display.disable_excl_rect_partial_fb=1
 vendor.display.comp_mask=0
-vendor.display.disable_idle_fps_switch=1
+vendor.display.disable_idle_fps_switch=0
+# Match stock SDM fallback policy when display fuse data is unavailable.
+vendor.display.disable_system_load_check=1
+vendor.display.use_desiredpresenttime_as_candidate=1
+vendor.display.boost_RR_during_brightness_dimming=1
 vendor.display.force_lm_to_fb_config=1
 vendor.display.disable_cwb_idle_fallback=1
 
