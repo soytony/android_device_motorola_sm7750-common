@@ -113,6 +113,16 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.l
 BOARD_SYSTEM_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.systemdlkm_blocklist
 BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.blocklist
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard vendor/motorola/sm7750-common/modules/vendor_boot/*.ko)
+# Recovery runs before vendor_dlkm is mounted. Package the RoadSTR touchscreen
+# driver chain in the vendor ramdisk so init.recovery can probe either panel.
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES += \
+    vendor/motorola/sm7750-common/modules/vendor_dlkm/sensors_class.ko \
+    vendor/motorola/sm7750-common/modules/vendor_dlkm/mmi_relay.ko \
+    vendor/motorola/sm7750-common/modules/vendor_dlkm/touchscreen_mmi.ko \
+    vendor/motorola/sm7750-common/modules/vendor_dlkm/mmi_annotate.ko \
+    vendor/motorola/sm7750-common/modules/vendor_dlkm/mmi_info.ko \
+    vendor/motorola/sm7750-common/modules/vendor_dlkm/goodix_brl_mmi.ko \
+    vendor/motorola/sm7750-common/modules/vendor_dlkm/focaltech_v3_4.ko
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_boot))
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
