@@ -70,3 +70,24 @@ sh_binary {
     src: "recovery/recovery_touch_start.sh",
     recovery: true,
 }
+cc_library_shared {
+    name: "libaudio_bluetooth_roadstr",
+    defaults: [
+        "aidlaudioservice_defaults",
+        "latest_android_hardware_audio_core_ndk_shared",
+        "latest_android_hardware_audio_core_sounddose_ndk_shared",
+        "latest_android_hardware_bluetooth_audio_ndk_shared",
+        "latest_android_media_audio_common_types_ndk_shared",
+    ],
+    srcs: ["audio/BluetoothModule.cpp"],
+    shared_libs: ["libaudioserviceexampleimpl"],
+    cflags: ["-Wall", "-Wextra", "-Werror"],
+}
+
+prebuilt_etc {
+    name: "roadstr_bluetooth_audio_core_manifest",
+    src: "audio/bluetooth_audio_core.xml",
+    filename: "bluetooth_audio_core.xml",
+    sub_dir: "vintf/manifest",
+    vendor: true,
+}
