@@ -24,6 +24,19 @@ namespace_imports = [
 ]
 
 blob_fixups: blob_fixups_user_type = {
+    # The AIDL HAL selects this generic config on Lineage, not sku_sun.
+    # Keep the provider factory and also register the software audio-core module.
+    'vendor/etc/audio/vendor_audio_interfaces.xml': blob_fixup()
+        .regex_replace(
+            r'(<library name="btaudio"[\s\S]*?mandatory="true"\s*/>)(?!\s*<library name="btaudio_sw")',
+            r'\1\n    <library name="btaudio_sw" libraryName="libaudio_bluetooth_roadstr.so"'
+            r'\n            method="registerBluetoothAudioModule" mandatory="false" />',
+        )
+        .regex_replace('android.hardware.bluetooth.audio_sw.so', 'libaudio_bluetooth_roadstr.so')
+        .regex_replace('registerIModuleBluetoothSWQti', 'registerBluetoothAudioModule'),
+    'vendor/etc/audio/sku_sun/vendor_audio_interfaces.xml': blob_fixup()
+        .regex_replace('android.hardware.bluetooth.audio_sw.so', 'libaudio_bluetooth_roadstr.so')
+        .regex_replace('registerIModuleBluetoothSWQti', 'registerBluetoothAudioModule'),
     # Android 16 host_init_verifier requires an explicit service user.
     'vendor/etc/init/hw/init.mmi.tcmd.rc': blob_fixup()
         .regex_replace(

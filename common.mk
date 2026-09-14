@@ -83,6 +83,8 @@ PRODUCT_PACKAGES += \
     libmediautils_vendor.vendor \
     libmemunreachable.vendor \
     android.hardware.bluetooth.audio-impl \
+    libaudio_bluetooth_roadstr \
+    roadstr_bluetooth_audio_core_manifest \
     android.hardware.soundtrigger@2.3-impl \
     audio.bluetooth.default \
     audio.r_submix.default \
