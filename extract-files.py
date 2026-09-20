@@ -45,6 +45,10 @@ blob_fixups: blob_fixups_user_type = {
         ),
     'system_ext/etc/permissions/vendor.qti.hardware.c2pa-V1-java.xml': blob_fixup()
         .regex_replace(r'<\?xml version="2\.0"', r'<?xml version="1.0"'),
+    # This stock HAL requires protobuf 21.12 ABI symbols removed from the
+    # platform library. Bind only this HAL to the matching vendor protobuf.
+    'system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so': blob_fixup()
+        .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-21.12.so'),
     # Load Lineage's Motorola sub-HAL for touchscreen-backed wake gestures.
     'vendor/etc/sensors/hals.conf': blob_fixup()
         .add_line_if_missing('sensors.moto_ext.so'),
