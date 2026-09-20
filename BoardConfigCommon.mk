@@ -93,7 +93,6 @@ BOARD_BOOTCONFIG += \
     androidboot.hypervisor.protected_vm.supported=true \
     androidboot.vendor.qspa=true \
     androidboot.adb_early=1 \
-    androidboot.selinux=permissive \
     androidboot.serialconsole=0
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
