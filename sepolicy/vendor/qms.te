@@ -1,0 +1,9 @@
+# QMS workers may create/write only split logs under `other`; the stock
+# neverallow intentionally protects `main` from worker domains. Keep DAC
+# capability denials blocked; filesystem labels/permissions are the control.
+allow vendor_qms_0 vendor_qms_other_data_file:dir create_dir_perms;
+allow vendor_qms_0 vendor_qms_other_data_file:file create_file_perms;
+allow vendor_qms_1 vendor_qms_other_data_file:dir create_dir_perms;
+allow vendor_qms_1 vendor_qms_other_data_file:file create_file_perms;
+allow vendor_qms_2 vendor_qms_other_data_file:dir create_dir_perms;
+allow vendor_qms_2 vendor_qms_other_data_file:file create_file_perms;
