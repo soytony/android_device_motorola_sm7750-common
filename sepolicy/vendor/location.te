@@ -1,0 +1,9 @@
+# Stock loc_launcher forks these helpers. The newer Qualcomm policy only
+# transitions them from init; retain the stock launcher transitions as well.
+domain_auto_trans(vendor_location, vendor_location_lowi_server_exec, vendor_location_lowi_server)
+domain_auto_trans(vendor_location, vendor_location_xtra_daemon_exec, vendor_location_xtra_daemon)
+
+# loc_launcher passes its location sockets and executable descriptors to both
+# helpers during startup.
+allow vendor_location_lowi_server vendor_location:fd use;
+allow vendor_location_xtra_daemon vendor_location:fd use;
