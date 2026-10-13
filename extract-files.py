@@ -24,6 +24,14 @@ namespace_imports = [
 ]
 
 blob_fixups: blob_fixups_user_type = {
+    # Thales uses the pre-Float/Double cppbor vtable. The platform ABI shifts
+    # encodedSize/encode and silently produces empty StrongBox requests.
+    (
+        'vendor/bin/hw/android.hardware.security.keymint-service.strongbox-thales',
+        'vendor/lib64/libjc_keymint-thales.so',
+    ): blob_fixup()
+        .replace_needed('libcppbor_external.so', 'libcppbor_thales.so'),
+    'vendor/lib64/libcppbor_thales.so': blob_fixup().fix_soname(),
     # The AIDL HAL selects this generic config on Lineage, not sku_sun.
     # Keep the provider factory and also register the software audio-core module.
     'vendor/etc/audio/vendor_audio_interfaces.xml': blob_fixup()
