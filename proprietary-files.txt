@@ -773,6 +773,8 @@ vendor/etc/init/vppservice.rc
 vendor/etc/init/wfdvndservice.rc
 
 # Keymaster
+# Stock cppbor ABI required by the Thales KeyMint blob
+vendor/lib64/libcppbor_external.so:vendor/lib64/libcppbor_thales.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libjc_keymint-thales.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libjc_keymint_transport-thales.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libkeymasterdeviceutils.so;MAKE_COPY_RULE_ONLY
