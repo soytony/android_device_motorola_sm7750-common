@@ -71,11 +71,10 @@ vendor.display.disable_scaler=0
 vendor.display.disable_excl_rect=0
 vendor.display.disable_excl_rect_partial_fb=1
 vendor.display.comp_mask=0
-# The stock panel driver must not change FPS during the idle window.  A 60/90
-# Hz command transition changes OLED luminance briefly, which is especially
-# visible at low brightness and is often triggered immediately after touch.
 vendor.display.disable_idle_fps_switch=0
-# Match stock SDM fallback policy when display fuse data is unavailable.
+# Stock Motorola policy disables SDM system-load gating. Without this, the
+# composer falls back to an unavailable 60 Hz configuration when fuse data is
+# absent on Lineage and rejects primary-display creation.
 vendor.display.disable_system_load_check=1
 vendor.display.use_desiredpresenttime_as_candidate=1
 vendor.display.boost_RR_during_brightness_dimming=1
