@@ -45,5 +45,6 @@ service recovery_touch /system/bin/recovery_touch_start
     class default
     user root
     group root
+    seclabel u:r:recovery:s0
     disabled
     oneshot

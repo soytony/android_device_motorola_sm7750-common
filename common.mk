@@ -176,7 +176,6 @@ PRODUCT_PACKAGES += \
     init.mmi.chipset.rc \
     init.mmi.rc \
     init.qcom.rc \
-    init.qcom.recovery.rc \
     init.system.qcom.rc \
     init.target.rc \
     init.qti.kernel.rc \
